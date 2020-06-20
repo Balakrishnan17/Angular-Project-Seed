@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
 
+## Features
+
+1. HTTP Interceptor for adding token to every request.
+2. Authentication for Login
+    -> ngrx/store version 9 with lazy loaded feature added.
+    -> ngrx/effects version 9 feature added. 
+3. Progress Bar for HTTP requests.
+4. Toasty added for error and success messages.
+
 ## Development server
 
 Run `npm start` for a dev server. Navigate to `http://localhost:6200/`. The app will automatically reload if you change any of the source files.
