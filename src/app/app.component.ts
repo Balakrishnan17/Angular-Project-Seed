@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   loading: boolean = true;
   isLoggedIn$: Observable<boolean>;
   isLoading$: Observable<boolean>;
+  showprogress$: Observable<boolean>;
 
   constructor(
     private rootService: RootService,
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit {
   ) {
     this.isLoggedIn$ = this.store.select(userAuth.getIsLoggedIn);
     this.isLoading$ = this.store.select(userAuth.getIsLoading);
+    this.showprogress$ = this.store.select(userAuth.getShowProgress);
   }
 
   ngOnInit() {

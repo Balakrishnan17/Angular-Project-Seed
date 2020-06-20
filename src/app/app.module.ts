@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +14,9 @@ import { AuthGuard } from './service/auth-guard.service';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './state-management/index';
-import { AuthEffects } from './state-management/userauth.effect'
+import { AuthEffects } from './state-management/userauth.effect';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 
 @NgModule({
   declarations: [
@@ -31,6 +32,8 @@ import { AuthEffects } from './state-management/userauth.effect'
     StoreModule.forRoot({}),
     StoreModule.forFeature('user_auth', reducers),
     EffectsModule.forRoot([AuthEffects]),
+    BrowserAnimationsModule,
+    MatProgressBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

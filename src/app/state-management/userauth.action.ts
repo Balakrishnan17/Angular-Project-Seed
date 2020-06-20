@@ -7,6 +7,8 @@ export const LOGIN_SUCCESS = "Login Success";
 export const LOGIN_FAILURE = "Login Failure";
 export const AUTHORIZED = "Authorized";
 export const LOADING = "Loading"
+export const PROGRESS_START = "Progress Show"
+export const PROGRESS_END = "Progress End"
 
 export class Login implements Action {
     readonly type = LOGIN;
@@ -37,6 +39,14 @@ export class Loading implements Action {
     readonly type = LOADING;
 }
 
+export class ProgressShow implements Action {
+    readonly type = PROGRESS_START;
+}
+
+export class ProgressEnd implements Action {
+    readonly type = PROGRESS_END;
+}
+
 export type ActionList =
     | Login
     | Logout
@@ -44,3 +54,5 @@ export type ActionList =
     | LoginFailure
     | Authorized
     | Loading
+    | ProgressShow
+    | ProgressEnd

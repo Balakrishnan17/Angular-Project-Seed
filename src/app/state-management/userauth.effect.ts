@@ -77,8 +77,7 @@ export class AuthEffects {
         ofType(Auth.LOGOUT),
         map(() => {
             localStorage.removeItem("auth-token");
-            this.router.navigate(["/auth/login"]);
-            return ""
+            return new Auth.LoginFailure()
         }),
         catchError(error => of(new Auth.LoginFailure())
         )

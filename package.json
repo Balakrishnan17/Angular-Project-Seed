@@ -2,7 +2,7 @@
   "name": "web",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng g s service/module-uard",
+    "ng": "ng add @angular/material",
     "start": "ng serve --open --port 6200",
     "build": "ng build",
     "test": "ng test",
@@ -12,10 +12,12 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.7",
+    "@angular/cdk": "^9.2.4",
     "@angular/common": "~9.1.7",
     "@angular/compiler": "~9.1.7",
     "@angular/core": "~9.1.7",
     "@angular/forms": "~9.1.7",
+    "@angular/material": "^9.2.4",
     "@angular/platform-browser": "~9.1.7",
     "@angular/platform-browser-dynamic": "~9.1.7",
     "@angular/router": "~9.1.7",

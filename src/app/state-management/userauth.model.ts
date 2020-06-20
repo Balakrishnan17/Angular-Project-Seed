@@ -4,6 +4,14 @@ export class UserAuth  extends Map<string, any> {
     user_data: UserData | null
 }
 
+export class ProgressState extends Map<string, any> {
+    show_progress: boolean = false;
+}
+
+export class ProgressStateRecord {
+    show_progress = false;
+}
+
 export class UserAuthRecord {
     pending = false;
     is_logged_in = false;

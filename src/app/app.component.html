@@ -1,7 +1,10 @@
-<app-header *ngIf="isLoggedIn$ | async"></app-header>
-<app-sidebar *ngIf="isLoggedIn$ | async"></app-sidebar>
-<router-outlet *ngIf="!(isLoading$ | async)"></router-outlet>
-<app-footer *ngIf="isLoggedIn$ | async"></app-footer>
-<div class="loader" *ngIf="isLoading$ | async">
+<div>
+    <mat-progress-bar *ngIf="showprogress$ | async" mode="indeterminate"></mat-progress-bar>
 
+    <app-header *ngIf="isLoggedIn$ | async"></app-header>
+    <app-sidebar *ngIf="isLoggedIn$ | async"></app-sidebar>
+
+    <router-outlet *ngIf="!(isLoading$ | async)"></router-outlet>
+
+    <app-footer *ngIf="isLoggedIn$ | async"></app-footer>
 </div>
