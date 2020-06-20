@@ -1,0 +1,13 @@
+<!-- <button (click)="encryptAndDecrypt(true)">EncryptKey</button>
+<button (click)="encryptAndDecrypt(false)">DecryptKey</button> -->
+<!-- <h1>{{hash}}</h1> -->
+<div style="background-color: coral;text-align: center;padding: 5px;width: 100%; height: 40px; margin: 5px;">
+    {{difference}}
+</div>
+<app-header *ngIf="isLoggedIn$ | async"></app-header>
+<app-sidebar *ngIf="isLoggedIn$ | async"></app-sidebar>
+<router-outlet *ngIf="!(isLoading$ | async)"></router-outlet>
+<app-footer *ngIf="isLoggedIn$ | async"></app-footer>
+<div class="loader" *ngIf="isLoading$ | async">
+
+</div>
