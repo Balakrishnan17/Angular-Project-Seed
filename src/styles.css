@@ -150,6 +150,20 @@ form div label{
     display: block;
 }
 
+.success-toasty{
+    background-color: #73e079;
+    color: #ffffff;
+}
+
+.error-toasty{
+    background-color: #f87575;
+    color: #ffffff;
+}
+
+.mat-simple-snackbar-action  {
+    color: #ffffff;
+}
+
 /* Progress bar background color */
 
 /* 

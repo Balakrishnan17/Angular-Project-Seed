@@ -1,37 +1,35 @@
 import { Injectable } from '@angular/core';
-import * as environment from '../../environments/environment'
-import { Observable, Observer, observable, BehaviorSubject } from 'rxjs';
-declare var require: any
-const crypto = require('crypto')
-const buffer = require('buffer')
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RootService {
 
-  resizedIV = buffer.Buffer.allocUnsafe(16);
-  loginObser:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-
   constructor(
-
+    private snackBar: MatSnackBar
   ) { }
 
-  loginChange(isLoggedIn){
-    this.loginObser.next(isLoggedIn);
+  showSuccessToasty(message: string) {
+    const snackBarRef = this.snackBar.open(message, 'X',{
+      panelClass: ['success-toasty']
+    });
+
+    snackBarRef.onAction().subscribe(() => {
+      console.log('The snack-bar action was triggered!');
+      snackBarRef.dismiss();
+    });
   }
 
-  encryptKey(encrptionKey) {
-    const key = crypto.createHash('sha256').update(environment.environment.ENCRYPTION_KEY).digest();
-    const cipher = crypto.createCipheriv("aes-256-ctr", key, this.resizedIV);
-    const encryptedKey = cipher.update(encrptionKey, "binary", "hex");
-    return encryptedKey;
+  showErrorToasty(message: string) {
+    const snackBarRef = this.snackBar.open(message, 'Close',{
+      panelClass: ['error-toasty']
+    });
+
+    snackBarRef.onAction().subscribe(() => {
+      console.log('The snack-bar action was triggered!');
+      snackBarRef.dismiss();
+    });
   }
 
-  decryptKey(hash) {
-    const key = crypto.createHash('sha256').update(environment.environment.ENCRYPTION_KEY).digest();
-    const cipher = crypto.createDecipheriv("aes-256-ctr", key, this.resizedIV);
-    const decriptionKey = cipher.update(hash, "hex", "binary");
-    return decriptionKey;
-  }
 }

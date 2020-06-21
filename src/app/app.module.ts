@@ -17,6 +17,7 @@ import { reducers } from './state-management/index';
 import { AuthEffects } from './state-management/userauth.effect';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatProgressBarModule } from '@angular/material/progress-bar'
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -33,10 +34,18 @@ import { MatProgressBarModule } from '@angular/material/progress-bar'
     StoreModule.forFeature('user_auth', reducers),
     EffectsModule.forRoot([AuthEffects]),
     BrowserAnimationsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: 'right'
+      }
+    },
     AuthService,
     ModuleGuard,
     AuthGuard

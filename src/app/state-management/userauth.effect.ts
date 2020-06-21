@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Effect, Actions, ofType } from "@ngrx/effects";
-import { catchError, map, exhaustMap, tap, switchMap, filter } from 'rxjs/operators';
+import { catchError, map, tap, switchMap, filter } from 'rxjs/operators';
 
 import { AuthService } from "../service/auth.service";
 import * as Auth from "./userauth.action";
@@ -31,7 +31,7 @@ export class AuthEffects {
         filter<any>(body => body),
         map(body => {
             localStorage.setItem("auth-token", body.data.token);
-            delete body.data.token
+            delete body.data.token;
             return new Auth.LoginSuccess(body.data)
         })
     );
@@ -94,7 +94,7 @@ export class AuthEffects {
         filter<any>(body => body),
         map(body => {
             localStorage.setItem("auth-token", body.data.token);
-            delete body.data.token
+            delete body.data.token;
             return new Auth.LoginSuccess(body.data)
         }),
         catchError(error => of(new Auth.LoginFailure())
