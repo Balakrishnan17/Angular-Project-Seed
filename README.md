@@ -8,8 +8,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 2. Authentication for Login
     -> ngrx/store version 9 with lazy loaded feature added.
     -> ngrx/effects version 9 feature added. 
-3. Progress Bar for HTTP requests.
-4. Toasty added for error and success messages.
+3. Angular Material Progress Bar for HTTP requests.
+4. Angular Material Snack Bar for Toast error and success message.
 
 ## Development server
 
